@@ -102,7 +102,7 @@ function Home() {
         }
 
         getAllSongs();
-    }, []);
+    }, [navigate]);
 
 
     return (
