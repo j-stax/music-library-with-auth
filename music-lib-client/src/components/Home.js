@@ -84,14 +84,19 @@ function Home() {
 
     useEffect( () => {
         async function getAllSongs() {
-            const results = await getSongs();
+            const result = await getSongs();
+            setIsLoading(false);
 
-            if (results.error) {
-                alert(results.error);
+            if (result.error) {
+                if (result.error === "Invalid JWT") {
+                    navigate("/error/invalid-token");
+                }
+                else {
+                    alert(result.error);
+                }
             }
             else {
-                setIsLoading(false);
-                setSongs(results);
+                setSongs(result);
             }
             
         }

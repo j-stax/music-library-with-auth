@@ -82,7 +82,7 @@ async function getSong(songId) {
 
     window.localStorage.setItem("token", token);
 
-    return response;
+    return response.json();
 }
 
 async function addSong(song) {

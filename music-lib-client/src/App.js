@@ -6,6 +6,7 @@ import EditSong from './components/EditSong';
 import Register from './components/Register';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import ErrorJWT from './components/ErrorJWT';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/add" element={<AddSong />} />
         <Route path="/edit/:songId" element={<EditSong />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/error/invalid-token" element={<ErrorJWT />} />
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Container>  
   );

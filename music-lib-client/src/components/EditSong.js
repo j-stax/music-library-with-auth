@@ -69,20 +69,23 @@ function EditSong() {
 
     useEffect( () =>  {
         async function loadSong() {
-            const response = await getSong(songId);
+            const result = await getSong(songId);
 
-            if (response.ok) {
-                const song = await response.json();
-                setInputs({
-                    title: titleCase(song.title),
-                    artist: titleCase(capitalizeArrayElem(song.artist)),
-                    releaseYear: song.releaseYear,
-                    genre: capitalizeArrayElem(song.genre)
-                });
+            if (result.error) {
+                if (result.error === "Invalid JWT") {
+                    navigate("/error/invalid-token");
+                }
+                else {
+                    setErrorMessage(result.error);
+                }
             }
             else {
-                const result = await response.json();
-                setErrorMessage(`Error ${response.status} - ${result.error}`);
+                setInputs({
+                    title: titleCase(result.title),
+                    artist: titleCase(capitalizeArrayElem(result.artist)),
+                    releaseYear: result.releaseYear,
+                    genre: capitalizeArrayElem(result.genre)
+                });
             }
         }
 

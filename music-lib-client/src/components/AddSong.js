@@ -28,6 +28,9 @@ function AddSong() {
             const result = await addSong(song);
 
             if (result.error) {
+                if (result.error === "Invalid JWT") {
+                    navigate("/error/invalid-token");
+                }
                 setErrorMessage(result.error);
             }
             else {
