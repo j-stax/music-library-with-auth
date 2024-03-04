@@ -91,9 +91,6 @@ function Home() {
                 if (result.error === "Invalid JWT") {
                     navigate("/error/invalid-token");
                 }
-                else {
-                    alert(result.error);
-                }
             }
             else {
                 setSongs(result);
