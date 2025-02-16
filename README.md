@@ -1,3 +1,5 @@
+# Song Library
+
 A song database web application built on the MERN stack (MongoDB, Express, React, Node.js). It allows users to manage their own personal library of song titles and other song details. Moreover, users can perform searches by artist and genre for quick filtering. The application also features JWT token-based user authentication and password hashing using bcryptjs.
 
 Running the application:
